@@ -21,8 +21,8 @@ app.get('/pokemon', (req,res) => {
     try{
         findPokemon()
     } catch (error){
-        rollbar.error('I am broken...')
         res.status(500)
+        rollbar.error('I am broken...')
     }
 })
 
