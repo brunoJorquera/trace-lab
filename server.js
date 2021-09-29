@@ -3,7 +3,6 @@ const path = require("path")
 const app = express()
 
 app.use(express.json())
-// app.use('/public', express.static(path.join(__dirname, "..public")))
 
 const Rollbar = require("rollbar")
 
@@ -35,5 +34,6 @@ app.get('/critical', (req,res) => {
 const port = process.env.PORT || 4242
 
 app.use(rollbar.errorHandler())
+app.use(express.static('client'))
 
 app.listen(port, () => console.log(`Jackie Robinson was ${port}`))
