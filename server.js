@@ -3,7 +3,7 @@ const path = require("path")
 const app = express()
 
 app.use(express.json())
-app.use('/public',express.static(path.join(__dirname, "..public")))
+// app.use('/public', express.static(path.join(__dirname, "..public")))
 
 const Rollbar = require("rollbar")
 
@@ -25,6 +25,11 @@ app.get('/pokemon', (req,res) => {
         res.status(500)
         rollbar.error('I am broken...')
     }
+})
+
+app.get('/critical', (req,res) => {
+    res.status(200).send('You MONSTER')
+    rollbar.critical("THIS IS CRITICAL")
 })
 
 const port = process.env.PORT || 4242
