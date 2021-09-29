@@ -1,4 +1,3 @@
-const axios = require("axios")
 
 let baseURL = 'https://monitor-this-app.herokuapp.com'
 let button = document.querySelector('button')
